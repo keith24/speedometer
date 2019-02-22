@@ -11,6 +11,7 @@ if (!'geolocation' in navigator) {
   const WID = navigator.geolocation.watchPosition( function (loc) {
     // got speed
     if (loc.coords.speed) {
+			console.log('Got speed:',loc.coords.speed)
       // convert to mph and display
       speedDiv.innerHTML = (2.23693629205*loc.coords.speed).toFixed(1)
     } else {
