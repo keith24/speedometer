@@ -1,16 +1,20 @@
 'use strict';
 
-const speedometer = document.getElementById('speedometer')
-const speedSpan = document.getElementById('speed')
+const speedDiv = document.getElementById('speed')
 
 // Check for API
 if (!'geolocation' in navigator) {
   alert('No geolocation API available')
-  speedometer.innerHTML = 'No API'
+  speedDiv.innerHTML = 'No API'
 } else {
-  const WID = navigator.geolocation.watchPosition( function(loc) {
-    console.log(JSON.stringify(loc.coords.speed))
-    //alert('speed:',loc.coords.speed)
-    if (loc.coords.speed) speedSpan.innerHTML = loc.coords.speed
+	
+  const WID = navigator.geolocation.watchPosition( function (loc) {
+    // got speed
+    if (loc.coords.speed) {
+      // convert to mph and display
+      speedDiv.innerHTML = (2.23693629205*loc.coords.speed).toFixed(1)
+    } else {
+      speedDiv.innerHTML = '0.0'
+    }
   })
 }

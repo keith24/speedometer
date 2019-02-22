@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	background: #080808;
+	color: #FFF;
+}
+
+#speed, #units {
+	font-family: 'sans';
+	text-align: center;
+}
+#units {
+	font-size: 10vw;
+}
+#speed {
+	font-size: 30vw;
+}
